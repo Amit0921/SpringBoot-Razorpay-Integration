@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Checkout example</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+
+
+    <!-- Bootstrap core CSS via CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core JS via CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+<!--    <link href="/assets/bootstrap.min.css" rel="stylesheet">-->
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+<!--    <link th:href="@{/assets/form-validation.css}" rel="stylesheet">-->
+
+</head>
+<body class="bg-light">
+
+<div class="container" style="max-width: 990px">
+    <main>
+        <div class="py-5 text-center">
+            <img th:src="@{/images/payment-gateway.svg}" class="d-block mx-auto mb-4" alt="Logo" width="72" height="57" style="transform: scale(1.6);">
+            <h2>Checkout form</h2>
+            <p class="lead">Below is the demo form for Razorpay payment integration.</p>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Your cart</span>
+                    <span class="badge bg-primary rounded-pill">3</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Product name</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$12</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Second product</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$8</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Third item</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$5</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div class="text-success">
+                            <h6 class="my-0">Promo code</h6>
+                            <small>EXAMPLECODE</small>
+                        </div>
+                        <span class="text-success">−$5</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total (USD)</span>
+                        <strong>$20</strong>
+                    </li>
+                </ul>
+
+                <form class="card p-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Promo code">
+                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Billing</h4>
+                <form class="needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+                            <div class="invalid-feedback">
+                                Valid name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Phone" required>
+                            <div class="invalid-feedback">
+                                Valid phone number is required.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="course" class="form-label">Course</label>
+                            <input type="text" class="form-control" id="course" placeholder="Course Name" required>
+                            <div class="invalid-feedback">
+                                Please enter the course name.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amount" placeholder="Amount" required>
+                            <div class="invalid-feedback">
+                                Amount is required.
+                            </div>
+                        </div>
+
+                        <!-- Fields like order status and razorpay order ID should either be hidden or handled in the backend -->
+<!--                        <input type="hidden" th:field="*{orderStatus}" value="PENDING">-->
+<!--                        <input type="hidden" th:field="*{razorpayOrderId}">-->
+
+                    </div>
+
+                    <hr class="my-4">
+
+<!--                    <h4 class="mb-3">Payment</h4>-->
+
+<!--                    <div class="my-3">-->
+<!--                        <div class="form-check">-->
+<!--                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required>-->
+<!--                            <label class="form-check-label" for="credit">Credit card</label>-->
+<!--                        </div>-->
+<!--                        <div class="form-check">-->
+<!--                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>-->
+<!--                            <label class="form-check-label" for="debit">Debit card</label>-->
+<!--                        </div>-->
+<!--                        <div class="form-check">-->
+<!--                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>-->
+<!--                            <label class="form-check-label" for="paypal">PayPal</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="row gy-3">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <label for="cc-name" class="form-label">Name on card</label>-->
+<!--                            <input type="text" class="form-control" id="cc-name" placeholder="" required>-->
+<!--                            <small class="text-muted">Full name as displayed on card</small>-->
+<!--                            <div class="invalid-feedback">-->
+<!--                                Name on card is required.-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="col-md-6">-->
+<!--                            <label for="cc-number" class="form-label">Credit card number</label>-->
+<!--                            <input type="text" class="form-control" id="cc-number" placeholder="" required>-->
+<!--                            <div class="invalid-feedback">-->
+<!--                                Credit card number is required.-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="col-md-3">-->
+<!--                            <label for="cc-expiration" class="form-label">Expiration</label>-->
+<!--                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>-->
+<!--                            <div class="invalid-feedback">-->
+<!--                                Expiration date required.-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="col-md-3">-->
+<!--                            <label for="cc-cvv" class="form-label">CVV</label>-->
+<!--                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>-->
+<!--                            <div class="invalid-feedback">-->
+<!--                                Security code required.-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <hr class="my-4">-->
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" id="rzp-button">Proceed To Pay</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2022–2024 Amit Tech</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    async function createOrder(){
+        console.log("---- order creation started ----")
+        const response = await fetch ('http://localhost:9090/payment/create-order', {
+            method: "POST",
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body : JSON.stringify({
+                name : document.getElementById('name').value,
+                email : document.getElementById('email').value,
+                phone : document.getElementById('phone').value,
+                course : document.getElementById('course').value,
+                amount : document.getElementById('amount').value,
+                currency : "INR",
+            })
+        });
+        const order = await response.json();
+        console.log("---- order creation completed ----")
+        console.log(order)
+        return order;
+    }
+
+    document.getElementById('rzp-button').onclick = async function(e){
+        e.preventDefault();
+        const order = await createOrder();
+        console.log(order);
+
+        var options = {
+            "key" : "rzp_test_Go0qYBRqU6LOnP",
+            "amount" : order.amount,
+            "currency" : "INR",
+            "name" : "Amit Gupta",
+            "description" : "Course Payment",
+            "order_id" : order.razorpayOrderId,
+            "receipt" : order.email,
+            "callback_url" : "http://localhost:9090/payment/handle-payment-callback",
+            "prefill" : {
+                "name" : order.name,
+                "email" : order.email,
+                "contact" : order.phone
+            },
+            "theme" : "#3399cc",
+            // "color": "#004A55"
+        }
+
+        try {
+            var rzp = new Razorpay(options);
+            rzp.open();
+            e.preventDefault();
+        } catch (error) {
+            console.error("Error opening Razorpay:", error);
+        }
+        // var rzp = new Razorpay(options);
+        // rzp.open();
+        // e.preventDefault();
+    }
+</script>
+
+<!--<script src="/assets/bootstrap.bundle.min.js"></script>-->
+
+<script th:src="@{/assets/form-validation.js}"></script>
+</body>
+</html>
