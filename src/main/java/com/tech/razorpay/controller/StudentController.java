@@ -22,7 +22,7 @@ public class StudentController {
         return "index";
     }
 
-    @PostMapping(value = "create-order", produces = "application/json")
+    @PostMapping(value = "create-order", produces = "application/json", consumes = "application/json")
     @ResponseBody
     public ResponseEntity<StudentOrders> createOrder(@RequestBody StudentOrders studentOrders) throws RazorpayException {
         StudentOrders createOrder = studentService.createOrder(studentOrders);

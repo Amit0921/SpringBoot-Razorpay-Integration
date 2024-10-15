@@ -40,7 +40,8 @@ razorpay:
     id: rzp_test_Go0qYBRqU6LOnP
 
   secret:
-    key: zzxvIz1wXt85Rlyd2AgEYVsW
+    key: ${KEY}
+#    key: zzxvIz1wXt85Rlyd2AgEYVsW
 
 #jwt:
 #  secret:
